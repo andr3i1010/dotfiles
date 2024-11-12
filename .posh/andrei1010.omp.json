@@ -1,0 +1,128 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+      {
+        "alignment": "left",
+        "segments": [
+            {
+                "type": "os",
+                "style": "plain",
+                "template": "{{.Icon}} ",
+                "foreground_templates": [
+                    "{{ if eq .OS \"arch\" }}#1793D1{{ end }}",
+                    "{{ if eq .OS \"manjaro\" }}#E06C75{{ end }}",
+                    "{{ if eq .OS \"endeavouros\" }}#5E73D1{{ end }}",
+                    "{{ if eq .OS \"ubuntu\" }}#E95420{{ end }}",
+                    "{{ if eq .OS \"debian\" }}#A80030{{ end }}",
+                    "{{ if eq .OS \"fedora\" }}#3C6EB4{{ end }}",
+                    "{{ if eq .OS \"kali\" }}#557C94{{ end }}",
+                    "{{ if eq .OS \"windows\" }}#32a3ff{{ end }}",
+                    "{{ if eq .OS \"macos\" }}#007ACC{{ end }}",
+                    "{{ if not .OS }}#FFFFFF{{ end }}"
+                ]
+            },
+          {
+            "foreground": "#ff5e6e",
+            "style": "plain",
+            "template": "{{ .UserName }}@{{.HostName}} ",
+            "type": "session"
+          },
+          {
+            "foreground": "#359aff",
+            "properties": {
+              "style": "full"
+            },
+            "style": "plain",
+            "template": "{{ .Path }} ",
+            "type": "path"
+          }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "left",
+        "segments": [
+          {
+            "foreground": "#42d758",
+            "properties": {
+              "style": "austin"
+            },
+            "style": "plain",
+            "template": " {{ .FormattedMs }} ",
+            "type": "executiontime"
+          },
+          {
+            "foreground": "#fffb38",
+            "properties": {
+              "fetch_upstream_icon": true,
+              "branch_max_length": 25,
+              "fetch_stash_count": true,
+              "fetch_status": true,
+              "branch_icon": "\uE0A0 ",
+              "branch_identical_icon": "\u25CF"
+            },
+            "style": "plain",
+            "template": " {{ .UpstreamIcon }}{{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+            "type": "git"       
+          },
+          {
+            "foreground": "#6CA35E",
+            "style": "plain",
+            "template": " \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} ",
+            "type": "node"
+          },
+          {
+            "foreground": "#f99e1f",
+            "style": "plain",
+            "template": "  {{ .Full }} ",
+            "type": "java"
+          },
+          {
+            "type": "python",
+            "style": "plain",
+            "template": "  {{.Venv}} ",
+            "foreground_templates": [
+                "{{ if .Venv }}#32a3ff{{ end }}"
+            ]
+        },
+        {
+            "type": "python",
+            "style": "plain",
+            "template": "{{.Full}} ",
+            "foreground_templates": [
+                "{{ if .Full }}#FFE873{{ end }}"
+            ]
+        }
+        ],
+        "type": "prompt"
+      },
+      {
+        "alignment": "left",
+        "newline": true,
+        "segments": [
+          {
+            "foreground": "#B48EAD",
+            "foreground_templates": [
+              "{{ if gt .Code 0 }}#BF616A{{ end }}"
+            ],
+            "properties": {
+              "always_enabled": true
+            },
+            "style": "plain",
+            "template": "\u276f ",
+            "type": "status"
+          }
+        ],
+        "type": "prompt"
+      }
+    ],
+    "console_title_template": "{{if .Root}}(Admin){{end}} {{.PWD}}",
+    "transient_prompt": {
+      "foreground": "#B48EAD",
+      "foreground_templates": [
+        "{{ if gt .Code 0 }}#BF616A{{ end }}"
+      ],
+      "template": "\u276f "
+    },
+    "version": 3
+  }
