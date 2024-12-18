@@ -11,7 +11,7 @@
                 "foreground_templates": [
                     "{{ if eq .OS \"arch\" }}#1793D1{{ end }}",
                     "{{ if eq .OS \"manjaro\" }}#E06C75{{ end }}",
-                    "{{ if eq .OS \"endeavouros\" }}#5E73D1{{ end }}",
+                    "{{ if eq .OS \"endeavouros\" }}#5c28ed{{ end }}",
                     "{{ if eq .OS \"ubuntu\" }}#E95420{{ end }}",
                     "{{ if eq .OS \"debian\" }}#A80030{{ end }}",
                     "{{ if eq .OS \"fedora\" }}#3C6EB4{{ end }}",
